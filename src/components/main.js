@@ -16,7 +16,7 @@ export default class Main extends React.Component {
       guessNumbers: []
     };
 
-
+  this.textInput = React.createRef();
   this.showModal = this.showModal.bind(this);
   this.hideModal = this.hideModal.bind(this);
   }
@@ -33,6 +33,12 @@ export default class Main extends React.Component {
     });
   }
   
+enterGuess(e){
+  
+  console.log(e)
+  this.setState({guess: e})
+}
+
   render() {
 
       return (
@@ -49,7 +55,7 @@ export default class Main extends React.Component {
             <Modal 
               hideModal={this.hideModal}
             /> : ''}
-            <Game />
+            <Game enterGuess={(e) => this.enterGuess(e)} />
           </div>
         </div>
       );
