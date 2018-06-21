@@ -15,7 +15,11 @@ export default class Main extends React.Component {
       numberofTries: 0,
       guessNumbers: []
     }
+
+
+  this.showModal = this.showModal.bind(this);
   }
+
 
   showModal(e) {
     e.preventDefault();
@@ -28,21 +32,27 @@ export default class Main extends React.Component {
   
   render() {
   
-  return (
-    <div>
-      <header>
-        <div className="navigation">
-        <Navigation 
-          onClick={this.showModal()}
-          />
-        </div>
+    if(this.state.showRules) { 
+      return (
         <div>
-        <Modal />
+          <Modal />
         </div>
-      </header>
-      <div>
-        <Game />
-      </div>
-    </div>
-  );
-}}
+      )
+    } else {
+      return (
+        <div>
+          <header>
+            <div className="navigation">
+            <Navigation 
+              onClick={this.showModal}
+              />
+            </div>
+          </header>
+          <div>
+            <Game />
+          </div>
+        </div>
+      );
+    } 
+  }
+}
