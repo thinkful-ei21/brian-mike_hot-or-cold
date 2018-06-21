@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function ModalBox() {
+export default function ModalBox(props) {
   return (
     <div>
-    <div class="overlay" id="modal">
-    <div class="content">
+    <div className="overlay" id="modal">
+    <div className="content">
       <h3>What do I do?</h3>
       <div>
         <p>This is a Hot or Cold Number Guessing Game. The game goes like this: </p>
@@ -14,7 +14,9 @@ export default function ModalBox() {
           <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
         </ul>
         <p>So, Are you ready?</p>
-        <a class="close" href="">Got It!</a>
+        <a className="close" href=""
+          onClick={() => props.closeModal()}
+        >Got It!</a>
       </div>
     </div>
   </div>

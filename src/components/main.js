@@ -14,45 +14,44 @@ export default class Main extends React.Component {
       guess: 0,
       numberofTries: 0,
       guessNumbers: []
-    }
+    };
 
 
   this.showModal = this.showModal.bind(this);
+  this.hideModal = this.hideModal.bind(this);
   }
 
-
-  showModal(e) {
-    e.preventDefault();
+  showModal() {
     this.setState({
       showRules: true
     });
   }
-  
 
+  hideModal() {
+    this.setState({
+      showRules: false
+    });
+  }
   
   render() {
-  
-    if(this.state.showRules) { 
-      return (
-        <div>
-          <Modal />
-        </div>
-      )
-    } else {
+
       return (
         <div>
           <header>
             <div className="navigation">
             <Navigation 
-              onClick={this.showModal}
+              showModal={this.showModal}
               />
             </div>
           </header>
           <div>
+            {this.state.showRules ? 
+            <Modal 
+              hideModal={this.hideModal}
+            /> : ''}
             <Game />
           </div>
         </div>
       );
     } 
   }
-}

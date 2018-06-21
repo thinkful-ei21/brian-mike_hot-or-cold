@@ -5,8 +5,8 @@ export default function Navigation(props) {
     <nav> 
 				<ul className="clearfix">
 					<li><a className="what" 
-						href=""
-						onClick={e => this.props.showModal(e)}
+						href="#"
+						onClick={() => props.showModal()}
 						>What ?</a></li>
 					<li><a className="new" href="">+ New Game</a></li>
 				</ul>
